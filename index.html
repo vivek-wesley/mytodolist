@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    
+    <!-- Link to Manifest File -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
         <h1>To-Do List</h1>
         <input type="text" id="taskInput" placeholder="Enter a task">
@@ -14,6 +20,17 @@
         <ul id="taskList"></ul>
     </div>
 
+    <!-- Register Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js")
+                .then(() => console.log("Service Worker Registered"))
+                .catch((err) => console.log("Service Worker Failed", err));
+        }
+    </script>
+
+    <!-- Link to JavaScript -->
     <script src="script.js"></script>
+
 </body>
 </html>
